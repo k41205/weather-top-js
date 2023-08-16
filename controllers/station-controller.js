@@ -38,4 +38,12 @@ export const stationController = {
     await measureStore.addMeasure(station._id, newMeasure);
     response.redirect('/station/' + station._id);
   },
+
+  async deleteMeasure(request, response) {
+    const stationId = request.params.id;
+    const measureId = request.params.measureid;
+    console.log(`Deleting Measure ${measureId} from Station ${stationId}`);
+    await measureStore.deleteMeasure(request.params.measureId);
+    response.redirect('/station/' + stationId);
+  },
 };
