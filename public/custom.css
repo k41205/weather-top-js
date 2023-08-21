@@ -1,0 +1,50 @@
+.icon {
+  width: 64px;
+  height: 64px;
+}
+
+.fa-solid {
+  font-size: 64px;
+}
+
+.fa-location-dot {
+  color: #7209b7;
+}
+
+.fa-cloud-sun {
+  color: #d72638;
+}
+
+.fa-temperature-empty {
+  color: #3f88c5;
+}
+
+.fa-wind {
+  color: #a7c133;
+}
+
+.fa-arrows-to-dot {
+  color: #f49d37;
+}
+
+.fa-arrow-up {
+  color: #3f6c12;
+  font-size: 40px;
+}
+
+.fa-arrow-down {
+  color: #3f6c12;
+  font-size: 40px;
+}
+
+.custom-rounded {
+  border-radius: 4px !important;
+}
+
+.custom-gap {
+  gap: 10px;
+}
+
+.custom-icon-gap {
+  gap: 30px;
+}

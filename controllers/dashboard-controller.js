@@ -1,4 +1,5 @@
 import { stationStore } from '../models/station-store.js';
+import { measureStore } from '../models/measure-store.js';
 import { accountsController } from './accounts-controller.js';
 
 export const dashboardController = {
@@ -7,9 +8,17 @@ export const dashboardController = {
     if (!loggedInUser) {
       return response.redirect('/login');
     }
+    const stations = await stationStore.getStationsByUserId(loggedInUser._id);
+    for (const station of stations) {
+      const measures = await measureStore.getMeasuresByStationId(station._id);
+      if (measures && measures.length > 0) {
+        const lastMeasure = measures[measures.length - 1];
+        station.lastMeasure = lastMeasure;
+      }
+    }
     const viewData = {
       title: 'Station Dashboard',
-      stations: await stationStore.getStationsByUserId(loggedInUser._id),
+      stations: stations,
     };
     console.log('dashboard rendering');
     response.render('dashboard-view', viewData);

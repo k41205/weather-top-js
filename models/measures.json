@@ -38,7 +38,7 @@
     },
     {
       "code": 300,
-      "temp": -5,
+      "temp": 26,
       "windSpeed": 23,
       "windDirection": 201,
       "pressure": 601,
@@ -67,7 +67,7 @@
     {
       "time": "16 Aug 2023, 08:49:57",
       "code": 700,
-      "temp": 22,
+      "temp": 20,
       "windSpeed": 22,
       "windDirection": 22,
       "pressure": 607,

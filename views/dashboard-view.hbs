@@ -1,44 +1,5 @@
-{{> menu}}
+{{> menu active="dashboard"}}
 
-<style>
-    .notification-container {
-        display: flex;
-        justify-content: space-around;
-        gap: 2%;
-    }
-
-    .notification-container .notification {
-        flex: 1;
-    }
-
-    .notification-wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-    }
-</style>
-
-{{#if stations.length}}
-
-{{#each stations as |station|}}
-<div class="content box">
-    <h1 class="title">
-        {{station.name}}
-    </h1>
-    <a href="/station/{{station._id}}" class="icon has-text-primary">
-        <i class="fas fa-folder"></i>
-    </a>
-     <a href="/dashboard/deletestation/{{_id}}" class="icon has-text-danger">
-    <i class="fas fa-trash"></i>
-</a>
-</div>
-{{/each}}
-
-{{else}}
-
-<p> No station available yet. Add your first station!</p>
-
-{{/if}}
+{{> list-stations stations=stations}}
 
 {{> add-station}}

@@ -1,3 +1,5 @@
+{{#if station.measures}}
+
 <table class='table is-bordered is-fullwidth'>
   <thead>
     <tr>
@@ -31,3 +33,12 @@
 
   </tbody>
 </table>
+
+{{else}}
+
+<div class="content py-6 has-text-centered">
+    <h2 class="py-3">No measures recorded yet</h2>
+    <p>Add your first measure below!</p>
+</div>
+
+{{/if}}

@@ -1,8 +1,8 @@
-import { v4 } from "uuid";
-import { initStore } from "../utils/store-utils.js";
-import { measureStore } from "./measure-store.js";
+import { v4 } from 'uuid';
+import { initStore } from '../utils/store-utils.js';
+import { measureStore } from './measure-store.js';
 
-const db = initStore("stations");
+const db = initStore('stations');
 
 export const stationStore = {
   async getAllStations() {
@@ -26,10 +26,19 @@ export const stationStore = {
     }
     return list;
   },
-  
+
   async getStationsByUserId(userid) {
     await db.read();
-    return db.data.stations.filter((station) => station.userid === userid);
+    const stations = db.data.stations.filter(
+      (station) => station.userid === userid
+    );
+
+    for (const station of stations) {
+      const measures = await measureStore.getMeasuresByStationId(station._id);
+      station.measures = measures;
+    }
+
+    return stations;
   },
 
   async deleteStationById(id) {

@@ -21,6 +21,20 @@
       "longitude": 15,
       "userid": "8b04482d-2330-40d9-aa93-939cd6be76b9",
       "_id": "f4dfd5b4-7168-45c7-9e28-2013c5eb3fa3"
+    },
+    {
+      "name": "Wateford",
+      "latitude": 11,
+      "longitude": 12,
+      "userid": "8b04482d-2330-40d9-aa93-939cd6be76b9",
+      "_id": "d11e93c2-c8c2-4656-935e-7daa5ee522cd"
+    },
+    {
+      "name": "Wexford",
+      "latitude": 0,
+      "longitude": 0,
+      "userid": "8b04482d-2330-40d9-aa93-939cd6be76b9",
+      "_id": "3901b4d8-f67f-4ef2-942e-bd5ea4eb114b"
     }
   ]
 }

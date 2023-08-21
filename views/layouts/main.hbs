@@ -1,21 +1,49 @@
-<!DOCTYPE html>
-<html lang="en-IE">
+<html lang='en-IE'>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{title}}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/dd084b05a9.js" crossorigin="anonymous"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</head>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>{{title}}</title>
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'
+    />
+    <link rel='stylesheet' href='/custom.css' />
+    <script
+      src='https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js'
+    ></script>
+    <script
+      src='https://kit.fontawesome.com/dd084b05a9.js'
+      crossorigin='anonymous'
+    ></script>
+    <script
+      type='module'
+      src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'
+    ></script>
+    <script
+      nomodule
+      src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'
+    ></script>
+  </head>
 
-<body>
-  <div class="container">
-    {{{body}}}
-  </div>
-</body>
+  <body>
+    <div class='hero is-info is-small'>
+      <div class='hero-body'>
+        <p class='title has-text-centered'>
+          Welcome to the Weather Top App
+        </p>
+      </div>
+    </div>
+    <section class='box content'>
+      {{{body}}}
+    </section>
+    <footer class='footer box'>
+      <div class='content has-text-centered'>
+        <p>
+          Copyright Weather Top 2023
+        </p>
+      </div>
+    </footer>
+  </body>
 
 </html>

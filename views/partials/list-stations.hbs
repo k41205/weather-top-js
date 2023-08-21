@@ -1,9 +1,151 @@
-{{#each stations}}
-<div class="box box-link-hover-shadow">
-  <h2 class="title">
-    <a href="/station/{{_id}}">
-      {{title}}
-    </a>
-  </h2>
+{{#if stations}}
+
+  {{#each stations as |station|}}
+
+    <div class='content box'>
+
+       <div class="columns has-text-white custom-gap">
+        <section class="column has-background-dark custom-rounded is-one-fifth">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="is-size-5 has-text-weight-bold has-text-white">{{station.name}}</h2>
+
+                    <p class="is-marginless">
+                      Lat: {{station.latitude}}
+                    </p>
+                    <p class="is-marginless">
+                       Lng: {{station.longitude}}
+                    </p>
+                </div>
+                <div class="column has-text-centered">
+                    <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                </div>
+            </div>
+        </section>
+
+         {{#if station.measures}}
+
+        <section class="column has-background-dark custom-rounded">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="is-size-5 has-text-weight-bold has-text-white">Weather</h2>
+                    <p class="is-marginless">
+                        {{lastMeasure.code}}
+                    </p>
+                </div>
+                <div class="column has-text-centered">
+                    <span class="icon"><i class="fa-solid fa-cloud-sun"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="column has-background-dark custom-rounded">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="is-size-5 has-text-weight-bold has-text-white">Temperature</h2>
+                    <p class="is-marginless">{{lastMeasure.temp}}°C</p>
+                    <p class="is-marginless">
+                        {{toFahrenheit lastMeasure.temp}}°F
+                    </p>
+                    <p class="is-marginless">Max: {{maxValue station.measures 'temp'}}</p>
+                    <p class="is-marginless">Min: {{minValue station.measures 'temp'}}</p>
+                </div>
+                <div class="column is-flex is-flex-direction-column custom-icon-gap has-text-centered">
+                    <span class="icon"><i class="fa-solid fa-temperature-empty"></i></span>
+                    {{#if (eq (checkTrend station.measures 'temp') 'UP')}}
+                    <span class="icon"><i class="fa-solid fa-arrow-up"></i></span>
+                    {{/if}}
+                    {{#if (eq (checkTrend station.measures 'temp') 'DOWN')}}
+                    <span class="icon"><i class="fa-solid fa-arrow-down"></i></span>
+                    {{/if}}
+                </div>
+            </div>
+        </section>
+
+        <section class="column has-background-dark custom-rounded">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="is-size-5 has-text-weight-bold has-text-white">Wind</h2>
+                    <p class="is-marginless">
+                        {{windSpeedToBeaufort lastMeasure.windSpeed}}
+                        bft
+                    </p>
+                    <p class="is-marginless">
+                        {{degreeToName lastMeasure.windDirection}}
+                    </p>
+                    <p class="is-marginless">Feels like</p>
+                    <p class="is-marginless">
+                        {{windChill lastMeasure.temp lastMeasure.windSpeed}}
+                    </p>
+                    <p class="is-marginless">
+                        Max: {{maxValue station.measures 'windSpeed'}}
+                        Min: {{minValue station.measures 'windSpeed'}}
+                    </p>
+                </div>
+                <div class="column is-flex is-flex-direction-column custom-icon-gap has-text-centered">
+                    <span class="icon"><i class="fa-solid fa-wind"></i></span>
+                    {{#if (eq (checkTrend station.measures 'windSpeed') 'UP')}}
+                    <span class="icon"><i class="fa-solid fa-arrow-up"></i></span>
+                    {{/if}}
+                    {{#if (eq (checkTrend station.measures 'windSpeed') 'down')}}
+                    <span class="icon"><i class="fa-solid fa-arrow-down"></i></span>
+                    {{/if}}
+                </div>
+            </div>
+        </section>
+
+        <section class="column has-background-dark custom-rounded">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="is-size-5 has-text-weight-bold has-text-white">Pressure</h2>
+                    <p class="is-marginless">{{lastMeasure.pressure}} hPa</p>
+                    <p class="is-marginless">Max: {{maxValue station.measures 'pressure'}}</p>
+                    <p class="is-marginless">Min: {{minValue station.measures 'pressure'}}</p>
+                </div>
+                <div class="column is-flex is-flex-direction-column custom-icon-gap has-text-centered">
+                    <span class="icon"><i class="fa-solid fa-arrows-to-dot"></i></span>
+                    {{#if (eq (checkTrend station.measures 'pressure') 'UP')}}
+                    <span class="icon"><i class="fa-solid fa-arrow-up"></i></span>
+                    {{/if}}
+                    {{#if (eq (checkTrend station.measures 'pressure') 'DOWN')}}
+                    <span class="icon"><i class="fa-solid fa-arrow-down"></i></span>
+                    {{/if}}
+                </div>
+            </div>
+        </section>
+    </div>
+    <a href="/station/{{station._id}}" class="icon has-text-primary">
+    <i class="fas fa-folder"></i>
+</a>
+<a href="/dashboard/deletestation/{{_id}}" class="icon has-text-danger">
+    <i class="fas fa-trash"></i>
+</a>
 </div>
-{{/each}}
+
+        {{else}}
+
+<section class="column has-background-dark custom-rounded is-flex is-justify-content-center is-align-items-center">
+    <h3 class="has-text-white">No measures available yet</h3>
+</section>
+</div>
+<a href="/station/{{station._id}}" class="icon has-text-primary">
+    <i class="fas fa-folder"></i>
+</a>
+<a href="/dashboard/deletestation/{{_id}}" class="icon has-text-danger">
+    <i class="fas fa-trash"></i>
+</a>
+</div>
+
+        {{/if}}
+
+  {{/each}}
+
+{{else}}
+
+  <div class='content box has-text-centered'>
+    <h2 class='py-3'>There is no station added yet</h2>
+    <p>Add your first station below!</p>
+  </div>
+
+{{/if}}
+
