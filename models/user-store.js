@@ -1,7 +1,7 @@
-import { v4 } from "uuid";
-import { initStore } from "../utils/store-utils.js";
+import { v4 } from 'uuid';
+import { initStore } from '../utils/store-utils.js';
 
-const db = initStore("users");
+const db = initStore('users');
 
 export const userStore = {
   async getAllUsers() {
@@ -25,6 +25,14 @@ export const userStore = {
   async getUserByEmail(email) {
     await db.read();
     return db.data.users.find((user) => user.email === email);
+  },
+
+  async updateUser(user, updatedUser) {
+    user.firstName = updatedUser.firstName;
+    user.lastName = updatedUser.lastName;
+    user.email = updatedUser.email;
+    user.password = updatedUser.password;
+    await db.write();
   },
 
   async deleteUserById(id) {

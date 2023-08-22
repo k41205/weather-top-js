@@ -29,9 +29,9 @@ export const stationStore = {
 
   async getStationsByUserId(userid) {
     await db.read();
-    const stations = db.data.stations.filter(
-      (station) => station.userid === userid
-    );
+    const stations = db.data.stations
+      .filter((station) => station.userid === userid)
+      .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
     for (const station of stations) {
       const measures = await measureStore.getMeasuresByStationId(station._id);

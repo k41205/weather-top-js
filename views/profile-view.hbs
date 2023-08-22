@@ -1,0 +1,75 @@
+{{> menu active="profile"}}
+
+<section class="section">
+    <h1 class="title is-3 has-text-centered">My Details</h1>
+
+    <div class="columns is-centered">
+        <div class="column is-one-fifth has-text-centered">
+            <p class="has-text-weight-bold">First Name:</p>
+            <p class="has-text-weight-bold">Last Name:</p>
+            <p class="has-text-weight-bold">Email:</p>
+        </div>
+        <div class="column is-one-fifth has-text-centered">
+            <p>{{user.firstName}}</p>
+            <p>{{user.lastName}}</p>
+            <p>{{user.email}}</p>
+        </div>
+    </div>
+</section>
+
+{{!-- #{if flash.get("error")}
+<div class="notification is-danger">
+    ${flash.get("error").raw()}
+</div>
+#{/if} --}}
+
+<section class="section">
+    <h2 class="subtitle is-4 has-text-centered mb-4">Edit Details</h2>
+
+    <form action="/updateprofile" method="POST">
+        <div class="columns is-centered">
+            <div class="column is-one-fifth is-flex is-flex-direction-column is-justify-content-space-between">
+                <div class="field">
+                    <label class="label">First Name</label>
+                </div>
+                <div class="field">
+                    <label class="label">Last Name</label>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                </div>
+            </div>
+
+            <div class="column is-one-fifth">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="First Name" name="firstName">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Last Name" name="lastName">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="password" placeholder="Password" name="password">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control has-text-centered mt-6">
+            <button class="button is-info" type="submit">Save</button>
+        </div>
+
+    </form>
+</section>

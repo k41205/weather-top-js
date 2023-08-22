@@ -15,25 +15,26 @@
   color: #d72638;
 }
 
-.fa-temperature-empty {
+.fa-temperature-empty,
+.blue {
   color: #3f88c5;
 }
 
-.fa-wind {
+.fa-wind,
+.green {
   color: #a7c133;
 }
 
-.fa-arrows-to-dot {
+.fa-arrows-to-dot,
+.orange {
   color: #f49d37;
 }
 
 .fa-arrow-up {
-  color: #3f6c12;
   font-size: 40px;
 }
 
 .fa-arrow-down {
-  color: #3f6c12;
   font-size: 40px;
 }
 
