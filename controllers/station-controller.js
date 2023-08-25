@@ -1,15 +1,20 @@
 import { stationStore } from '../models/station-store.js';
 import { measureStore } from '../models/measure-store.js';
+import { accountsController } from './accounts-controller.js';
 
 export const stationController = {
   async index(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    if (!loggedInUser) {
+      return response.redirect('/login');
+    }
     const station = await stationStore.getStationById(request.params.id);
     const lastMeasure = await measureStore.getLastMeasureByStationId(
       station._id
     );
 
     const viewData = {
-      name: 'Station',
+      title: `${station.name} Station`,
       station: station,
       lastMeasure: lastMeasure,
     };
@@ -17,6 +22,10 @@ export const stationController = {
   },
 
   async addMeasure(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    if (!loggedInUser) {
+      return response.redirect('/login');
+    }
     const station = await stationStore.getStationById(request.params.id);
     const newMeasure = {
       time: new Date().toLocaleString('en-UK', {
@@ -40,6 +49,10 @@ export const stationController = {
   },
 
   async deleteMeasure(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    if (!loggedInUser) {
+      return response.redirect('/login');
+    }
     const stationId = request.params.id;
     const measureId = request.params.measureid;
     console.log(`Deleting Measure ${measureId} from Station ${stationId}`);

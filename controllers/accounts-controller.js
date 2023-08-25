@@ -1,55 +1,62 @@
-import { userStore } from "../models/user-store.js";
+import { userStore } from '../models/user-store.js';
 
 export const accountsController = {
-  index(request, response) {
-    const viewData = {
-      title: "Login or Signup",
-    };
-    response.render("index", viewData);
-  },
-
   login(request, response) {
     const viewData = {
-      title: "Login to the Service",
+      title: 'Login',
     };
-    response.render("login-view", viewData);
+    response.render('login-view', viewData);
   },
 
   logout(request, response) {
-    response.cookie("station", "");
-    response.redirect("/");
+    response.clearCookie('user');
+    response.redirect('/');
   },
 
   signup(request, response) {
     const viewData = {
-      title: "Login to the Service",
+      title: 'Signup',
     };
-    response.render("signup-view", viewData);
+    response.render('signup-view', viewData);
   },
 
   async register(request, response) {
     const user = request.body;
     await userStore.addUser(user);
     console.log(`registering ${user.email}`);
-    response.redirect("/");
+    response.redirect('/login');
   },
 
   async authenticate(request, response) {
     const user = await userStore.getUserByEmail(request.body.email);
-    if (user) {
-      response.cookie("station", user.email);
-      console.log(`logging in ${user.email}`);
-      response.redirect("/dashboard");
+    if (user && user.password === request.body.password) {
+      response.cookie(
+        'user',
+        JSON.stringify({ email: user.email, password: user.password })
+      );
+      response.redirect('/dashboard');
     } else {
-      response.redirect("/login");
+      response.render('login-view', {
+        errorMessage: 'Email or Password are wrong',
+      });
     }
   },
 
   async getLoggedInUser(request) {
-    const userEmail = request.cookies.station;
-   //  if (!userEmail) {
-   //    return null;
-   // }
+    let user;
+
+    try {
+      user = JSON.parse(request.cookies.user);
+    } catch (e) {
+      console.error('Failed to parse data:', e);
+      return null;
+    }
+
+    if (!user) return null;
+
+    const userEmail = user.email;
+    if (!userEmail) return null;
+
     return await userStore.getUserByEmail(userEmail);
   },
 };

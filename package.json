@@ -5,7 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "reset": "node ./backup/dev-db.js --delete&&node ./backend/dev-db.js --import"
   },
   "dependencies": {
     "body-parser": "^1.20.2",

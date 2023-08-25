@@ -1,9 +1,9 @@
 export const aboutController = {
   index(request, response) {
     const viewData = {
-      title: "About Station",
+      title: 'About Us',
     };
-    console.log("about rendering");
-    response.render("about-view", viewData);
+    console.log('about rendering');
+    response.render('index', viewData);
   },
 };

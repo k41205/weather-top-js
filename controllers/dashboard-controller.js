@@ -26,6 +26,9 @@ export const dashboardController = {
 
   async addStation(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
+    if (!loggedInUser) {
+      return response.redirect('/login');
+    }
     const newStation = {
       name: request.body.name,
       latitude: Number(request.body.latitude),
@@ -38,6 +41,10 @@ export const dashboardController = {
   },
 
   async deleteStation(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    if (!loggedInUser) {
+      return response.redirect('/login');
+    }
     const stationId = request.params.id;
     console.log(`Deleting Station ${stationId}`);
     await stationStore.deleteStationById(stationId);

@@ -17,6 +17,9 @@ export const profileController = {
 
   async updateProfile(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
+    if (!loggedInUser) {
+      return response.redirect('/login');
+    }
 
     let errorMsg;
 

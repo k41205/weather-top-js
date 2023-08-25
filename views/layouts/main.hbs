@@ -8,7 +8,7 @@
       rel='stylesheet'
       href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'
     />
-    <link rel='stylesheet' href='/custom.css' />
+    <link rel='stylesheet' href='/styles/custom.css' />
     <script
       src='https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js'
     ></script>
@@ -26,18 +26,14 @@
     ></script>
   </head>
 
-  <body>
+  <body  class="has-navbar-fixed-top is-flex is-flex-direction-column" style="min-height: 100vh; padding: 0 20px;">
     <div class='hero is-info is-small'>
-      <div class='hero-body'>
-        <p class='title has-text-centered'>
-          Welcome to the Weather Top App
-        </p>
-      </div>
+      {{>brand}}
     </div>
-    <section class='box content'>
+    <section class='content is-flex-grow-1'>
       {{{body}}}
     </section>
-    <footer class='footer box'>
+    <footer class='footer' style="padding: 3rem;">
       <div class='content has-text-centered'>
         <p>
           Copyright Weather Top 2023

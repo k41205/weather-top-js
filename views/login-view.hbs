@@ -16,18 +16,23 @@
         <h1 class="subtitle">Log-in</h1>
         <div class="field">
           <label class="label">Email</label>
-          <input class="input" placeholder="Email" name="email">
+          <input class="input" placeholder="Email" name="email" required>
         </div>
         <div class="field">
           <label class="label">Password</label>
-          <input class="input" type="password" name="password">
+          <input class="input" type="password" name="password" required>
          </div>
         <button class="button is-link is-info">Login</button>
       </form>
+      {{#if errorMessage}}
+      <div class="notification is-danger">
+        {{errorMessage}}
+      </div>
+      {{/if}}
     </div>
     <div class="column is-half">
       <figure class="image">
-        <img src="https://cdn.glitch.global/b869d362-912a-436d-b482-84ee3e5a23cb/login.png?v=1692007925784">
+        <img src="/images/login.png">
       </figure>
     </div>
   </div>

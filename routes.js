@@ -7,7 +7,7 @@ import { profileController } from './controllers/profile-controller.js';
 
 export const router = express.Router();
 
-router.get('/', dashboardController.index);
+router.get('/', aboutController.index);
 
 router.get('/login', accountsController.login);
 router.get('/signup', accountsController.signup);
