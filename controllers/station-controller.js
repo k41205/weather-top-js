@@ -27,6 +27,41 @@ export const stationController = {
       return response.redirect('/login');
     }
     const station = await stationStore.getStationById(request.params.id);
+    const lastMeasure = await measureStore.getLastMeasureByStationId(
+      station._id
+    );
+
+    const temp = Number(request.body.temp);
+    const windSpeed = Number(request.body.windSpeed);
+    const windDirection = Number(request.body.windDirection);
+    const pressure = Number(request.body.pressure);
+
+    let errorMessage = '';
+
+    if (temp < -20 || temp > 50) {
+      errorMessage += 'Temperature must be a value between -20 and 50. ';
+    }
+    if (windSpeed < 0 || windSpeed > 117) {
+      errorMessage += 'Wind Speed must be a value between 0 and 117. ';
+    }
+    if (windDirection < 0 || windDirection > 360) {
+      errorMessage += 'Wind Direction must be a value between 0 and 360. ';
+    }
+    if (pressure < 500 || pressure > 1500) {
+      errorMessage += 'Pressure must be a value between 500 and 1500.';
+    }
+
+    if (errorMessage) {
+      console.log('an error has been produced');
+      response.render('station-view', {
+        title: `${station.name} Station`,
+        station: station,
+        lastMeasure: lastMeasure,
+        errorMessage,
+      });
+      return;
+    }
+
     const newMeasure = {
       time: new Date().toLocaleString('en-UK', {
         year: 'numeric',
@@ -38,10 +73,10 @@ export const stationController = {
         hour12: false,
       }),
       code: Number(request.body.code),
-      temp: Number(request.body.temp),
-      windSpeed: Number(request.body.windSpeed),
-      windDirection: Number(request.body.windDirection),
-      pressure: Number(request.body.pressure),
+      temp,
+      windSpeed,
+      windDirection,
+      pressure,
     };
     console.log(`adding a new measure`);
     await measureStore.addMeasure(station._id, newMeasure);

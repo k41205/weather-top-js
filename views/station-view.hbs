@@ -3,3 +3,9 @@
 {{> list-measures}}
 
 {{> add-measure}}
+
+{{#if errorMessage}}
+    <div class="notification is-danger">
+        {{errorMessage}}
+    </div>
+{{/if}}
