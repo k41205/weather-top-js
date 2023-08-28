@@ -1,0 +1,19 @@
+<div class="box" id="chart"></div>
+{{arrMeasure station.measures 'temp'}}
+{{log (arrMeasure station.measures 'time')}}
+
+{{!-- {{log station.measures}} --}}
+<script>
+  data = {
+    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [
+      { values: [{{arrMeasure station.measures 'temp'}}] }
+    ]
+  };
+   new frappe.Chart("#chart", {
+    data: data,
+    type: "line",
+    height: 180,
+    colors: ["red"]
+  });
+</script>

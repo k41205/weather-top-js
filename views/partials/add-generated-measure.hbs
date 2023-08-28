@@ -1,0 +1,56 @@
+<button class="button is-danger" id="genReading">Auto Generate Reading</button>
+
+<script>
+  const lat = {{station.latitude}}.toFixed(2);
+  const lon = {{station.longitude}}.toFixed(2);
+  const id = "{{station._id}}";
+  let dataToPost;
+
+  const fetchAPI = async function(){
+    console.log('Fetching data from the API');
+    const APIKey = '1f4168c0a26924c8df5b36acf8cb03ba';
+    const endPoint = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+    console.log(endPoint);
+    try {
+    const response = await fetch(endPoint);
+    const data = await response.json();
+    let {dt, cod : code, main: {temp : tempK, pressure}, wind: {speed : windSpeed, deg : windDirection} } = data;
+    const time = (new Date(dt * 1000).toLocaleString('en-UK', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      }));
+    const temp = (tempK - 273.15).toFixed(2);
+    dataToPost={time, code, temp, windSpeed, windDirection, pressure};
+    } catch (e) { console.log('Error:' + e);
+      }
+    fetchPOST();
+  };
+
+
+  fetchPOST = async function() {
+    const postURL = `/station/${id}/addmeasure`;
+    console.log(postURL);
+    try {
+    const postResponse = await fetch(postURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToPost)
+        });
+        if (postResponse.ok) {
+            window.location.reload();
+        }
+    } catch (e) {
+        console.error('Error:', e);
+      }
+  }
+
+  document.getElementById('genReading').addEventListener('click', fetchAPI);
+  
+</script>

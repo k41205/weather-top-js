@@ -31,12 +31,28 @@ export const stationController = {
       station._id
     );
 
+    let time = Number(request.body.time);
+    const code = Number(request.body.code);
     const temp = Number(request.body.temp);
     const windSpeed = Number(request.body.windSpeed);
     const windDirection = Number(request.body.windDirection);
     const pressure = Number(request.body.pressure);
 
     let errorMessage = '';
+    let generated = true;
+
+    if(!time) {
+      generated = false;
+      time = new Date().toLocaleString('en-UK', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      })
+    }
 
     if (temp < -20 || temp > 50) {
       errorMessage += 'Temperature must be a value between -20 and 50. ';
@@ -63,16 +79,8 @@ export const stationController = {
     }
 
     const newMeasure = {
-      time: new Date().toLocaleString('en-UK', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-      }),
-      code: Number(request.body.code),
+      time,
+      code,
       temp,
       windSpeed,
       windDirection,
@@ -80,7 +88,8 @@ export const stationController = {
     };
     console.log(`adding a new measure`);
     await measureStore.addMeasure(station._id, newMeasure);
-    response.redirect('/station/' + station._id);
+    if (generated) response.status(200).json({ message: 'Data added successfully' });
+    if (!generated) response.redirect('/station/' + station._id);
   },
 
   async deleteMeasure(request, response) {

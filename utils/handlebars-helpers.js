@@ -58,6 +58,10 @@ function degreeToName(degree) {
   return 'North';
 }
 
+function arrMeasure(measures, givenMeasure) {
+  return measures.map((measure) => measure[givenMeasure]);
+}
+
 function maxValue(measures, givenMeasure) {
   let values = measures.map((measure) => measure[givenMeasure]);
   let maxVal = values[0];
@@ -99,6 +103,8 @@ function eq(a, b) {
   if (a === b) return true;
   else return false;
 }
+
+Handlebars.registerHelper('arrMeasure', arrMeasure);
 
 Handlebars.registerHelper('eq', eq);
 

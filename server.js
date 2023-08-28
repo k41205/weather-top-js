@@ -13,6 +13,7 @@ const app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
+app.use(express.json());
 app.use(fileUpload());
 app.engine('.hbs', engine({ extname: '.hbs' }));
 app.set('view engine', '.hbs');
