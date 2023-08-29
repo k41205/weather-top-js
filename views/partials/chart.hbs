@@ -5,15 +5,16 @@
 {{!-- {{log station.measures}} --}}
 <script>
   data = {
-    labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     datasets: [
-      { values: [{{arrMeasure station.measures 'temp'}}] }
+      { values: [{{arrMeasure station.measures 'temp' 10}}] }
     ]
   };
    new frappe.Chart("#chart", {
     data: data,
     type: "line",
     height: 180,
-    colors: ["red"]
+    colors: ["red"],
+    title: "Last 10 temperatures"
   });
 </script>

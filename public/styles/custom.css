@@ -1,3 +1,13 @@
+/* CHART */
+.title {
+  font-size: 1.8rem;
+}
+
+/* LEAFLET */
+#map {
+  height: 180px;
+}
+
 .image img {
   max-width: 100%;
   height: auto;

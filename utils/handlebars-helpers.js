@@ -58,8 +58,8 @@ function degreeToName(degree) {
   return 'North';
 }
 
-function arrMeasure(measures, givenMeasure) {
-  return measures.map((measure) => measure[givenMeasure]);
+function arrMeasure(measures, givenMeasure, size) {
+  return measures.map((measure) => measure[givenMeasure]).slice(-size);
 }
 
 function maxValue(measures, givenMeasure) {
@@ -126,5 +126,5 @@ Handlebars.registerHelper('windChill', function (temp, windSpeed) {
 Handlebars.registerHelper('degreeToName', degreeToName);
 
 Handlebars.registerHelper('toFahrenheit', function (temp) {
-  return (temp * 9) / 5 + 32;
+  return ((temp * 9) / 5 + 32).toFixed(2);
 });
