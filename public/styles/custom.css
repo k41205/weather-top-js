@@ -5,15 +5,18 @@
 
 /* LEAFLET */
 #map {
-  height: 180px;
+  height: 350px;
 }
 
+/* IMAGES */
 .image img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
+
+/* ICONS */
 
 .icon {
   width: 64px;
@@ -54,6 +57,8 @@
 .fa-arrow-down {
   font-size: 40px;
 }
+
+/* CUSTOM PROPERTIES */
 
 .custom-rounded {
   border-radius: 4px !important;

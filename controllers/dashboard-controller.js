@@ -20,7 +20,7 @@ export const dashboardController = {
       title: 'Station Dashboard',
       stations: stations,
     };
-    console.log('dashboard rendering');
+    console.log('dashboard view rendering');
     response.render('dashboard-view', viewData);
   },
 

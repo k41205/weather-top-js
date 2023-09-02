@@ -1,6 +1,6 @@
-import { Low } from "lowdb";
-import { JSONFile } from "lowdb/node";
-import * as fs from "fs";
+import { Low } from 'lowdb';
+import { JSONFile } from 'lowdb/node';
+import * as fs from 'fs';
 
 export function initStore(dataType) {
   const store = {

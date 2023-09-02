@@ -1,6 +1,7 @@
 {{> menu active="dashboard"}}
 
 <div class="content box">
+    
 {{> list-stations stations=stations}}
 
 <div id="map"></div>
@@ -8,3 +9,19 @@
 {{> add-station}}
 
 </div>
+
+
+<script>
+  var map = L.map('map').setView([53.4239, -7.9407], 6); // Set default coordinates and zoom level
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Loop through each station, add a marker to the map and a popup with their name
+  {{#each stations}}
+    L.marker([{{this.latitude}}, {{this.longitude}}]).addTo(map)
+      .bindPopup("{{this.name}}"); 
+  {{/each}}
+</script>

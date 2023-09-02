@@ -22,7 +22,7 @@ router.get('/station/:id', stationController.index);
 router.post('/station/:id/addmeasure', stationController.addMeasure);
 router.get(
   '/station/:id/deletemeasure/:measureId',
-  stationController.deleteMeasure
+  stationController.deleteMeasure,
 );
 
 router.get('/about', aboutController.index);

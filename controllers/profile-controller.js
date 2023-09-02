@@ -11,7 +11,7 @@ export const profileController = {
       title: 'My Profile',
       user: loggedInUser,
     };
-    console.log('my profile rendering');
+    console.log('profile view rendering');
     response.render('profile-view', viewData);
   },
 

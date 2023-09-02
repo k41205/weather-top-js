@@ -3,7 +3,7 @@ export const aboutController = {
     const viewData = {
       title: 'About Us',
     };
-    console.log('about rendering');
+    console.log('index view rendering');
     response.render('index', viewData);
   },
 };

@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars'; // If you're using ES modules
+import Handlebars from 'handlebars';
 
 const WIND_SPEEDS = {
   0: [0, 1],
@@ -24,8 +24,6 @@ function windSpeedToBeaufort(speed) {
   }
   return null;
 }
-
-Handlebars.registerHelper('windSpeedToBeaufort', windSpeedToBeaufort);
 
 const WIND_DIRECTIONS = {
   'North North East': 11.25,
@@ -104,27 +102,25 @@ function eq(a, b) {
   else return false;
 }
 
-Handlebars.registerHelper('arrMeasure', arrMeasure);
-
-Handlebars.registerHelper('eq', eq);
-
-Handlebars.registerHelper('checkTrend', checkTrend);
-
-Handlebars.registerHelper('maxValue', maxValue);
-
-Handlebars.registerHelper('minValue', minValue);
-
-Handlebars.registerHelper('windChill', function (temp, windSpeed) {
+function windChill(temp, windSpeed) {
   return (
     13.12 +
     0.6215 * temp -
     11.37 * Math.pow(windSpeed, 0.16) +
     0.3965 * temp * Math.pow(windSpeed, 0.16)
   ).toFixed(2);
-});
+}
 
-Handlebars.registerHelper('degreeToName', degreeToName);
-
-Handlebars.registerHelper('toFahrenheit', function (temp) {
+function toFahrenheit(temp) {
   return ((temp * 9) / 5 + 32).toFixed(2);
-});
+}
+
+Handlebars.registerHelper('arrMeasure', arrMeasure);
+Handlebars.registerHelper('eq', eq);
+Handlebars.registerHelper('checkTrend', checkTrend);
+Handlebars.registerHelper('maxValue', maxValue);
+Handlebars.registerHelper('minValue', minValue);
+Handlebars.registerHelper('windSpeedToBeaufort', windSpeedToBeaufort);
+Handlebars.registerHelper('windChill', windChill);
+Handlebars.registerHelper('degreeToName', degreeToName);
+Handlebars.registerHelper('toFahrenheit', toFahrenheit);

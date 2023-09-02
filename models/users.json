@@ -14,13 +14,6 @@
       "email": "setu@univ.org",
       "password": "123456",
       "_id": "d55a5a44-b70d-4685-89ad-84c1679f32b4"
-    },
-    {
-      "firstName": "aaa",
-      "lastName": "bbb",
-      "email": "a@b.c",
-      "password": "123456",
-      "_id": "fd54cf69-592e-4db4-8b08-a3aca52a0ec1"
     }
   ]
 }

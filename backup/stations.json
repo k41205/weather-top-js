@@ -3,40 +3,22 @@
   "stations": [
     {
       "name": "Dublin",
-      "_id": "f2b777a8-efac-45c0-a0b6-af35175ce4b6"
-    },
-    {
-      "name": "Dublin",
       "latitude": 53.3498,
-      "longitude": 6.2603,
+      "longitude": -6.2603,
       "userid": "8b04482d-2330-40d9-aa93-939cd6be76b9",
       "_id": "b23659c2-d3a9-435c-890e-5263b824abeb"
     },
     {
       "name": "Cork",
       "latitude": 51.8985,
-      "longitude": 8.4756,
+      "longitude": -8.4756,
       "userid": "8b04482d-2330-40d9-aa93-939cd6be76b9",
       "_id": "4d395706-ffd4-403b-9f8f-befdb94fbbb2"
     },
     {
-      "name": "Test",
-      "latitude": 20,
-      "longitude": 21,
-      "userid": "fd54cf69-592e-4db4-8b08-a3aca52a0ec1",
-      "_id": "0a7634ac-eb74-4688-9eea-901e9b23677c"
-    },
-    {
-      "name": "Test2",
-      "latitude": 21.111,
-      "longitude": 22.2222,
-      "userid": "fd54cf69-592e-4db4-8b08-a3aca52a0ec1",
-      "_id": "ab80397e-d43d-444e-824a-3d9eb6abe4b9"
-    },
-    {
       "name": "Waterford",
       "latitude": 52.2593,
-      "longitude": 7.1101,
+      "longitude": -7.1101,
       "userid": "d55a5a44-b70d-4685-89ad-84c1679f32b4",
       "_id": "608acb75-1023-4dfb-86fa-9cab62fa60e2"
     }

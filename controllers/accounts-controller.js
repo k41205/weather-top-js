@@ -5,6 +5,7 @@ export const accountsController = {
     const viewData = {
       title: 'Login',
     };
+    console.log('login view rendering');
     response.render('login-view', viewData);
   },
 
@@ -17,6 +18,7 @@ export const accountsController = {
     const viewData = {
       title: 'Signup',
     };
+    console.log('signup view rendering');
     response.render('signup-view', viewData);
   },
 
@@ -32,10 +34,11 @@ export const accountsController = {
     if (user && user.password === request.body.password) {
       response.cookie(
         'user',
-        JSON.stringify({ email: user.email, password: user.password })
+        JSON.stringify({ email: user.email, password: user.password }),
       );
       response.redirect('/dashboard');
     } else {
+      console.log('login view rendering');
       response.render('login-view', {
         errorMessage: 'Email or Password are wrong',
       });

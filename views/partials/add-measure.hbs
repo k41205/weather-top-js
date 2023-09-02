@@ -1,74 +1,74 @@
-<form action='/station/{{station._id}}/addmeasure' method='POST'>
-  <div class='columns'>
-    <div class='field column'>
-      <label class='label'>Code</label>
-      <div class='control'>
-        <div class='select is-fullwidth'>
-          <select name='code'>
-            <option value='100'>100</option>
-            <option value='200'>200</option>
-            <option value='300'>300</option>
-            <option value='400'>400</option>
-            <option value='500'>500</option>
-            <option value='600'>600</option>
-            <option value='700'>700</option>
-            <option value='800'>800</option>
+<form action="/station/{{station._id}}/addmeasure" method="POST">
+  <div class="columns">
+    <div class="field column">
+      <label class="label">Code</label>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select name="code">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+            <option value="600">600</option>
+            <option value="700">700</option>
+            <option value="800">800</option>
           </select>
         </div>
       </div>
     </div>
-    <div class='field column'>
-      <label class='label'>Temperature</label>
-      <div class='control'>
+    <div class="field column">
+      <label class="label">Temperature</label>
+      <div class="control">
         <input
-          class='input'
-          placeholder='Temperature'
-          type='number'
-          name='temp'
+          class="input"
+          placeholder="Temperature"
+          type="number"
+          name="temp"
           required
         />
       </div>
     </div>
-    <div class='field column'>
-      <label class='label'>Wind Speed</label>
-      <div class='control'>
+    <div class="field column">
+      <label class="label">Wind Speed</label>
+      <div class="control">
         <input
-          class='input'
-          placeholder='Wind Speed'
-          type='number'
-          name='windSpeed'
+          class="input"
+          placeholder="Wind Speed"
+          type="number"
+          name="windSpeed"
           required
         />
       </div>
     </div>
-    <div class='field column'>
-      <label class='label'>Wind Direction</label>
-      <div class='control'>
+    <div class="field column">
+      <label class="label">Wind Direction</label>
+      <div class="control">
         <input
-          class='input'
-          placeholder='Wind Direction'
-          type='number'
-          name='windDirection'
+          class="input"
+          placeholder="Wind Direction"
+          type="number"
+          name="windDirection"
           required
         />
       </div>
     </div>
-    <div class='field column'>
-      <label class='label'>Pressure</label>
-      <div class='control'>
+    <div class="field column">
+      <label class="label">Pressure</label>
+      <div class="control">
         <input
-          class='input'
-          placeholder='Pressure'
-          type='number'
-          name='pressure'
+          class="input"
+          placeholder="Pressure"
+          type="number"
+          name="pressure"
           required
         />
       </div>
     </div>
   </div>
-  <div class='field mt-4'>
-    <div class='control'>
-      <button class='button is-info'>Add Measure</button>
+  <div class="field mt-4">
+    <div class="control">
+      <button class="button is-info">Add Measure</button>
     </div>
   </div>
 </form>

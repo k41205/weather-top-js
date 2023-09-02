@@ -10,7 +10,7 @@ export const stationController = {
     }
     const station = await stationStore.getStationById(request.params.id);
     const lastMeasure = await measureStore.getLastMeasureByStationId(
-      station._id
+      station._id,
     );
 
     const viewData = {
@@ -18,6 +18,7 @@ export const stationController = {
       station: station,
       lastMeasure: lastMeasure,
     };
+    console.log('station view rendering');
     response.render('station-view', viewData);
   },
 
@@ -28,7 +29,7 @@ export const stationController = {
     }
     const station = await stationStore.getStationById(request.params.id);
     const lastMeasure = await measureStore.getLastMeasureByStationId(
-      station._id
+      station._id,
     );
 
     let time = Number(request.body.time);
@@ -41,7 +42,7 @@ export const stationController = {
     let errorMessage = '';
     let generated = true;
 
-    if(!time) {
+    if (!time) {
       generated = false;
       time = new Date().toLocaleString('en-UK', {
         year: 'numeric',
@@ -51,7 +52,7 @@ export const stationController = {
         minute: '2-digit',
         second: '2-digit',
         hour12: false,
-      })
+      });
     }
 
     if (temp < -20 || temp > 50) {
@@ -88,7 +89,8 @@ export const stationController = {
     };
     console.log(`adding a new measure`);
     await measureStore.addMeasure(station._id, newMeasure);
-    if (generated) response.status(200).json({ message: 'Data added successfully' });
+    if (generated)
+      response.status(200).json({ message: 'Data added successfully' });
     if (!generated) response.redirect('/station/' + station._id);
   },
 

@@ -1,20 +1,16 @@
 <div class="box" id="chart"></div>
-{{arrMeasure station.measures 'temp'}}
-{{log (arrMeasure station.measures 'time')}}
+{{arrMeasure station.measures "temp"}}
 
-{{!-- {{log station.measures}} --}}
 <script>
   data = {
-    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-    datasets: [
-      { values: [{{arrMeasure station.measures 'temp' 10}}] }
-    ]
-  };
-   new frappe.Chart("#chart", {
-    data: data,
-    type: "line",
-    height: 180,
-    colors: ["red"],
-    title: "Last 10 temperatures"
-  });
+  labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+  datasets: [{ values: [{{arrMeasure station.measures "temp" 10}}] }],
+};
+new frappe.Chart('#chart', {
+  data: data,
+  type: 'line',
+  height: 180,
+  colors: ['red'],
+  title: 'Last 10 temperatures',
+});
 </script>

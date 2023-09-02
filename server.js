@@ -22,6 +22,6 @@ app.use('/', router);
 
 const listener = app.listen(process.env.PORT || 4000, function () {
   console.log(
-    `Weather Top App started on http://localhost:${listener.address().port}`
+    `Weather Top App started on http://localhost:${listener.address().port}`,
   );
 });

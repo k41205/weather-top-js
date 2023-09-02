@@ -1,14 +1,5 @@
 {{> welcome-menu active="login"}}
 
-<style>
-.image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-</style>
-
 <section class="content box">
   <div class="columns">
     <div class="column is-half">
@@ -16,23 +7,23 @@
         <h1 class="subtitle">Log-in</h1>
         <div class="field">
           <label class="label">Email</label>
-          <input class="input" placeholder="Email" name="email" required>
+          <input class="input" placeholder="Email" name="email" required />
         </div>
         <div class="field">
           <label class="label">Password</label>
-          <input class="input" type="password" name="password" required>
-         </div>
+          <input class="input" type="password" name="password" required />
+        </div>
         <button class="button is-link is-info">Login</button>
       </form>
       {{#if errorMessage}}
-      <div class="notification is-danger">
-        {{errorMessage}}
-      </div>
+        <div class="notification is-danger">
+          {{errorMessage}}
+        </div>
       {{/if}}
     </div>
     <div class="column is-half">
       <figure class="image">
-        <img src="/images/login.png">
+        <img src="/images/login.png" />
       </figure>
     </div>
   </div>

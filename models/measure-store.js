@@ -1,7 +1,7 @@
-import { v4 } from "uuid";
-import { initStore } from "../utils/store-utils.js";
+import { v4 } from 'uuid';
+import { initStore } from '../utils/store-utils.js';
 
-const db = initStore("measures");
+const db = initStore('measures');
 
 export const measureStore = {
   async getAllMeasures() {
@@ -19,7 +19,7 @@ export const measureStore = {
   },
 
   async getMeasuresByStationId(id) {
-    if (!db.data || !db.data.measures) return
+    if (!db.data || !db.data.measures) return;
     await db.read();
     return db.data.measures.filter((measure) => measure.stationid === id);
   },
@@ -49,10 +49,12 @@ export const measureStore = {
     measure.pressure = updatedMeasure.pressure;
     await db.write();
   },
-  
-   async getLastMeasureByStationId(id) {
+
+  async getLastMeasureByStationId(id) {
     await db.read();
-    const measures = db.data.measures.filter((measure) => measure.stationid === id);
+    const measures = db.data.measures.filter(
+      (measure) => measure.stationid === id,
+    );
     return measures.length > 0 ? measures[measures.length - 1] : null;
-  }
+  },
 };

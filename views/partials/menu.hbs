@@ -1,19 +1,24 @@
-<nav class='navbar is-info is-inverted'>
-  <div class='navbar-brand'>
-    <a id='dashboard' class='navbar-item' href='/dashboard'>Dashboard</a>
+<nav class="navbar is-info is-inverted">
+  <div class="navbar-brand">
+    <a id="dashboard" class="navbar-item" href="/dashboard">Dashboard</a>
     {{#if station.name}}
-      <a id='station' class='navbar-item' href='#'>{{station.name}}</a>
+      <a id="station" class="navbar-item" href="#">{{station.name}}</a>
     {{/if}}
   </div>
-  <div class='navbar-menu'>
-    <div class='navbar-end'>
-      <a id='profile' class='navbar-item' href='/profile'>My Profile</a>
-      <a id='logout' class='navbar-item' href='/logout'>Logout</a>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <a id="profile" class="navbar-item" href="/profile">My Profile</a>
+      <a id="logout" class="navbar-item" href="/logout">Logout</a>
     </div>
   </div>
 </nav>
 
 <script>
-  document.getElementById("{{active}}").classList.add("has-background-white",
-  "has-text-black", "has-text-weight-bold");
+document
+  .getElementById('{{active}}')
+  .classList.add(
+    'has-background-white',
+    'has-text-black',
+    'has-text-weight-bold',
+  );
 </script>

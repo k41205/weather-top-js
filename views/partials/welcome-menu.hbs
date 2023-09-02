@@ -1,16 +1,21 @@
-<nav class='navbar is-info is-inverted'>
-  <div class='navbar-brand'>
-    <a id='about' class='navbar-item' href='/'>About Us</a>
+<nav class="navbar is-info is-inverted">
+  <div class="navbar-brand">
+    <a id="about" class="navbar-item" href="/">About Us</a>
   </div>
-  <div class='navbar-menu'>
-    <div class='navbar-end'>
-      <a id='login' class='navbar-item' href='/login'>Login </a>
-      <a id='signup' class='navbar-item' href='/signup'>Signup </a>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <a id="login" class="navbar-item" href="/login">Login </a>
+      <a id="signup" class="navbar-item" href="/signup">Signup </a>
     </div>
   </div>
 </nav>
 
 <script>
-  document.getElementById("{{active}}").classList.add("has-background-white",
-  "has-text-black", "has-text-weight-bold");
+document
+  .getElementById('{{active}}')
+  .classList.add(
+    'has-background-white',
+    'has-text-black',
+    'has-text-weight-bold',
+  );
 </script>

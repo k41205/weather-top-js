@@ -1,27 +1,26 @@
 {{#if stations}}
 
-    {{#each stations as |station|}}
+  {{#each stations as |station|}}
 
-        <div class='content box'>
+    <div class="content box">
 
-            {{>latest-measures station=station}}
-       
-            <a href="/station/{{station._id}}" class="icon has-text-primary">
-            <i class="fas fa-folder"></i>
-            </a>
-            <a href="/dashboard/deletestation/{{_id}}" class="icon has-text-danger">
-            <i class="fas fa-trash"></i>
-            </a>
-        </div>
+      {{>latest-measures station=station}}
 
-    {{/each}}
+      <a href="/station/{{station._id}}" class="icon has-text-primary">
+        <i class="fas fa-folder"></i>
+      </a>
+      <a href="/dashboard/deletestation/{{_id}}" class="icon has-text-danger">
+        <i class="fas fa-trash"></i>
+      </a>
+    </div>
+
+  {{/each}}
 
 {{else}}
 
-    <div class='content box has-text-centered'>
-        <h2 class='py-3'>There is no station added yet</h2>
-        <p>Add your first station below!</p>
-    </div>
+  <div class="content box has-text-centered">
+    <h2 class="py-3">There is no station added yet</h2>
+    <p>Add your first station below!</p>
+  </div>
 
 {{/if}}
-
