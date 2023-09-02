@@ -7,7 +7,7 @@ import './utils/handlebars-helpers.js';
 import { router } from './routes.js';
 import { loadData } from './init.js';
 
-await loadData();
+loadData();
 
 const app = express();
 app.use(cookieParser());

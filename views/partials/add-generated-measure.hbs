@@ -1,8 +1,8 @@
 <button class="button is-danger" id="genReading">Auto Generate Reading</button>
 
 <script>
-const lat = {{station.latitude}}.toFixed(2);
-const lon = {{station.longitude}}.toFixed(2);
+const lat = {{station.latitude}};
+const lon = {{station.longitude}};
 const id = '{{station._id}}';
 let dataToPost;
 const fetchAPI = async function () {
