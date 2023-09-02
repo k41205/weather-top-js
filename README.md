@@ -1,8 +1,10 @@
 # Weather Top V4
 
-Only script to run the app:
+To use the app through Glitch:
 
-npm start
+[Live site](https://weather--top--v4.glitch.me)
+
+[Code](https://glitch.com/edit/#!/weather--top--v4)
 
 To log in and see an already-made dataset example, use the following credentials:
 
