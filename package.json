@@ -1,6 +1,6 @@
 {
   "name": "weather-top",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Weather App",
   "main": "server.js",
   "type": "module",
@@ -18,11 +18,12 @@
     "uuid": "9.0.0"
   },
   "repository": {
-    "url": "https://github.com/wit-hdip-comp-sci-2023/playlist-1"
+    "url": "https://github.com/k41205/weather-top_js"
   },
   "license": "MIT",
   "keywords": [
     "node",
+    "glitch",
     "express"
   ],
   "engines": {
