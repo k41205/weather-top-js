@@ -216,6 +216,16 @@
       "pressure": 1022,
       "_id": "b4db709d-d594-4aac-bd91-52c3e1bab124",
       "stationid": "4d395706-ffd4-403b-9f8f-befdb94fbbb2"
+    },
+    {
+      "time": "2 Sept 2023, 16:05:35",
+      "code": 200,
+      "temp": 19.88,
+      "windSpeed": 3.09,
+      "windDirection": 150,
+      "pressure": 1023,
+      "_id": "fc4571be-1ec8-48da-b515-42490e77605e",
+      "stationid": "4d395706-ffd4-403b-9f8f-befdb94fbbb2"
     }
   ]
 }
